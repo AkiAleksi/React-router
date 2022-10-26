@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+
 import './App.css';
+
+
+import{
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
+
+import About from "./About";
+import Contact from "./Contact";
+import Home from "./home";
+
+const linkStyle = {
+  margin: "1rem",
+  textDecoration: "none",
+  color: 'red',
+};
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1 style={{backgroundColor: "black", color: "white", marginTop: 0, height: 80}}>Welcome to react router</h1> 
+    
+    <br></br>
+   
+    <Link to="/home" style={linkStyle}>Home</Link>
+    <Link to="/about" style={linkStyle}>About</Link>
+    <Link to="/contact" style={linkStyle}>Contact</Link>
+   
+    <Routes>
+      <Route path="/home" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
+
     </div>
+    </BrowserRouter>
   );
 }
 
